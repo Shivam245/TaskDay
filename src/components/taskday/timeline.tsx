@@ -1,14 +1,15 @@
 "use client";
 
-import type { Task } from "@/app/page";
+import { Task } from "@/lib/task-storage";
 import { TaskItem } from "./task-item";
 
 interface TimelineProps {
   tasks: Task[];
   onToggleComplete: (id: number) => void;
+  showDate?: boolean;
 }
 
-export function Timeline({ tasks, onToggleComplete }: TimelineProps) {
+export function Timeline({ tasks, onToggleComplete, showDate = false }: TimelineProps) {
   if (tasks.length === 0) {
     return (
       <div className="text-center py-16 px-4 border-2 border-dashed rounded-lg">
@@ -22,7 +23,7 @@ export function Timeline({ tasks, onToggleComplete }: TimelineProps) {
     <div className="relative">
       <div className="flex flex-col">
         {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} onToggleComplete={onToggleComplete} />
+          <TaskItem key={task.id} task={task} onToggleComplete={onToggleComplete} showDate={showDate} />
         ))}
       </div>
     </div>
