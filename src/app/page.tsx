@@ -5,9 +5,9 @@ import type { LucideIcon } from "lucide-react";
 import { Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { AddTaskDialog } from "@/components/chronozen/add-task-dialog";
-import { AppHeader } from "@/components/chronozen/header";
-import { Timeline } from "@/components/chronozen/timeline";
+import { AddTaskDialog } from "@/components/taskday/add-task-dialog";
+import { AppHeader } from "@/components/taskday/header";
+import { Timeline } from "@/components/taskday/timeline";
 import { useToast } from "@/hooks/use-toast";
 
 export interface Task {
