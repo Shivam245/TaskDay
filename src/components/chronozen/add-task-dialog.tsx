@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Briefcase, Coffee, BookOpen, Salad, Dumbbell, Sunrise, Phone, LucideIcon, icons as allIcons } from "lucide-react";
+import { Briefcase, Coffee, BookOpen, Salad, Dumbbell, Sunrise, Phone, LucideIcon, icons as allIcons, GraduationCap } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -34,6 +34,7 @@ const availableIcons = {
   Dumbbell,
   Sunrise,
   Phone,
+  Study: GraduationCap,
 };
 type IconName = keyof typeof availableIcons;
 

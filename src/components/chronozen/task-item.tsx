@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import type { Task } from "@/app/page";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Briefcase, Coffee, BookOpen, Salad, Dumbbell, Sunrise, Phone, type LucideProps } from "lucide-react";
+import { Briefcase, Coffee, BookOpen, Salad, Dumbbell, Sunrise, Phone, GraduationCap, type LucideProps } from "lucide-react";
 
 interface TaskItemProps {
   task: Task;
@@ -18,6 +18,7 @@ const icons: { [key: string]: React.FC<LucideProps> } = {
   Dumbbell,
   Sunrise,
   Phone,
+  Study: GraduationCap,
 };
 
 export function TaskItem({ task, onToggleComplete }: TaskItemProps) {
