@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import type { Task } from "@/app/page";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Briefcase, Coffee, BookOpen, Salad, Dumbbell, Sunrise, Phone, GraduationCap, type LucideProps } from "lucide-react";
+import { Briefcase, Coffee, BookOpen, Salad, Dumbbell, Sunrise, Phone, GraduationCap, type LucideProps, CheckCircle2 } from "lucide-react";
 
 interface TaskItemProps {
   task: Task;
@@ -55,6 +55,12 @@ export function TaskItem({ task, onToggleComplete }: TaskItemProps) {
               className="h-5 w-5 rounded-full"
             />
           </div>
+          {task.completed && task.completionTime && (
+            <div className="flex items-center gap-2 mt-3 pt-3 border-t border-border/50 text-xs text-muted-foreground">
+              <CheckCircle2 className="h-4 w-4 text-green-500" />
+              <span>Completed at {task.completionTime}</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

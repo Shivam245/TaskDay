@@ -17,11 +17,12 @@ export interface Task {
   icon: string;
   completed: boolean;
   reminded: boolean;
+  completionTime?: string;
 }
 
 const initialTasks: Task[] = [
-  { id: 1, time: "07:30", description: "Morning meditation", icon: "Sunrise", completed: true, reminded: true },
-  { id: 2, time: "08:30", description: "Breakfast and planning", icon: "Coffee", completed: true, reminded: true },
+  { id: 1, time: "07:30", description: "Morning meditation", icon: "Sunrise", completed: true, reminded: true, completionTime: "07:35" },
+  { id: 2, time: "08:30", description: "Breakfast and planning", icon: "Coffee", completed: true, reminded: true, completionTime: "08:40" },
   { id: 3, time: "09:00", description: "Begin deep work session", icon: "Briefcase", completed: false, reminded: true },
   { id: 4, time: "12:30", description: "Lunch break", icon: "Salad", completed: false, reminded: false },
   { id: 5, time: "14:00", description: "Client call", icon: "Phone", completed: false, reminded: false },
@@ -79,9 +80,19 @@ export default function Home() {
 
   const handleToggleComplete = (id: number) => {
     setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
+      prevTasks.map((task) => {
+        if (task.id === id) {
+          const isCompleted = !task.completed;
+          return {
+            ...task,
+            completed: isCompleted,
+            completionTime: isCompleted
+              ? new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })
+              : undefined,
+          };
+        }
+        return task;
+      })
     );
   };
   
